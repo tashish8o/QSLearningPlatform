@@ -1,0 +1,14 @@
+/* app/page.module.css */
+
+.fadeInUp {
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0; /* Start hidden */
+    transform: translateY(10px); /* Slightly below original position */
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

@@ -1,0 +1,86 @@
+/* app/globals.css */
+
+/* Global Reset / Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  background: #08070f; /* Dark base color */
+  font-family: 'Poppins', sans-serif; /* Or any font you like */
+  color: #f2f2f2; /* Soft white text */
+  overflow-x: hidden; /* Hide horizontal scroll from animations */
+}
+
+/* Glowing neon text (heading style) */
+h1, h2, h3, h4, h5, h6 {
+  text-shadow: 0 0 6px rgba(177, 134, 255, 0.7), 0 0 10px rgba(177, 134, 255, 0.5);
+  font-weight: 600;
+}
+
+/* A subtle gradient “quantum swirl” animation as a background overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #532b86, #241234, #3a0675, #871ad2);
+  background-size: 400% 400%;
+  opacity: 0.15; /* Keep it subtle, so text is readable */
+  z-index: -1; /* behind the main content */
+  animation: swirl 20s ease-in-out infinite;
+}
+
+@keyframes swirl {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+/* Button style: neon glow and hover effect */
+button {
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(90deg, #7f49c8, #aa4cf7);
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px rgba(192, 118, 255, 0.6);
+}
+
+/* Link style: subtle underline on hover */
+a {
+  color: #c784ff;
+  text-decoration: none;
+  transition: text-shadow 0.2s ease;
+}
+a:hover {
+  text-shadow: 0 0 4px rgba(199, 132, 255, 0.7);
+}
+
+/* Optional card or container style with a slight glass effect */
+.quantum-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+  margin-bottom: 1.5rem;
+}
