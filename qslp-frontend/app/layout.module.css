@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background-color: rgba(255, 255, 255, 0.04); /* subtle glass effect */
+  background-color: rgba(255, 255, 255, 0.04);
   box-shadow: 0 0 8px rgba(0, 193, 255, 0.2);
 }
 
@@ -17,7 +17,7 @@
 
 .logoImg {
   height: 40px; 
-  width: auto; 
+  width: auto;
 }
 
 .headerTitle {
@@ -44,4 +44,28 @@
 
 .nav a:hover {
   color: #fff;
+}
+
+/* RESPONSIVE HEADER */
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column; /* stack the logo and nav */
+    gap: 0.5rem;
+  }
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .nav a {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logoImg {
+    height: 30px;
+  }
 }

@@ -8,6 +8,12 @@ import styles from './layout.module.css';
 export const metadata: Metadata = {
   title: 'Quantum Learning Platform',
   description: 'Explore Quantum—For Everyone, From Anywhere',
+  // Optionally add viewport info here (Next.js 13+)
+  // Instead of manually placing meta tags, you can do:
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -16,7 +22,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <header className={styles.header}>
           <div className={styles.logo}>
-            {/* Display the PNG logo */}
             <img
               src="/image.png"
               alt="Quantum Society Logo"
