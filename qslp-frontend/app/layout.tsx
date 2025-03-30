@@ -3,7 +3,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 import Link from 'next/link';
-import styles from './layout.module.css';  // We'll create a small CSS module for the header animation
+import styles from './layout.module.css';
 
 export const metadata: Metadata = {
   title: 'Quantum Learning Platform',
@@ -15,7 +15,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body>
         <header className={styles.header}>
-          <div className={styles.headerTitle}>Quantum Society</div>
+          <div className={styles.logo}>
+            {/* Display the PNG logo */}
+            <img
+              src="/image.png"
+              alt="Quantum Society Logo"
+              className={styles.logoImg}
+            />
+            <div className={styles.headerTitle}>Quantum Society</div>
+          </div>
           <nav className={styles.nav}>
             <Link href="/">Home</Link>
             <Link href="/learning">Learning</Link>
@@ -23,9 +31,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <Link href="/community">Community</Link>
           </nav>
         </header>
+
         <main style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
           {children}
         </main>
+
         <footer style={{ textAlign: 'center', padding: '1rem 0' }}>
           <p>© {new Date().getFullYear()} Quantum Society</p>
         </footer>

@@ -1,37 +1,47 @@
 /* app/layout.module.css */
 
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 2rem;
-    background-color: rgba(255, 255, 255, 0.04); /* subtle glass-like effect */
-    box-shadow: 0 0 8px rgba(125, 47, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: rgba(255, 255, 255, 0.04); /* subtle glass effect */
+  box-shadow: 0 0 8px rgba(0, 193, 255, 0.2);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logoImg {
+  height: 40px; 
+  width: auto; 
+}
+
+.headerTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #60d3ff;
+  animation: pulseText 2s infinite alternate;
+}
+
+@keyframes pulseText {
+  0% {
+    text-shadow: 0 0 4px rgba(96, 211, 255, 0.5);
   }
-  
-  .headerTitle {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #c784ff;
-    /* Example pulsing effect */
-    animation: pulseText 2s infinite alternate;
+  100% {
+    text-shadow: 0 0 12px rgba(96, 211, 255, 1);
   }
-  
-  @keyframes pulseText {
-    0% {
-      text-shadow: 0 0 4px rgba(199, 132, 255, 0.5);
-    }
-    100% {
-      text-shadow: 0 0 12px rgba(199, 132, 255, 1);
-    }
-  }
-  
-  .nav a {
-    margin-left: 1rem;
-    font-weight: 500;
-    transition: color 0.2s;
-  }
-  
-  .nav a:hover {
-    color: #fff;
-  }
+}
+
+.nav a {
+  margin-left: 1rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav a:hover {
+  color: #fff;
+}

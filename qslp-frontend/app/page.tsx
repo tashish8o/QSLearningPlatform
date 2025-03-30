@@ -1,5 +1,5 @@
 // app/page.tsx
-'use client'; // Enable client-side features if needed
+'use client';
 
 import Link from 'next/link';
 
@@ -8,7 +8,6 @@ export default function HomePage() {
     <section style={{ padding: '2rem' }}>
       <h1>Explore Quantum—For Everyone, From Anywhere</h1>
 
-      {/* Example embedded video (YouTube) */}
       <div style={{ margin: '1rem 0' }}>
         <iframe
           width="560"

@@ -1,27 +1,22 @@
 /* app/globals.css */
 
-/* Global Reset / Base */
+/* Reset / Base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
-  background: #08070f; /* Dark base color */
-  font-family: 'Poppins', sans-serif; /* Or any font you like */
-  color: #f2f2f2; /* Soft white text */
-  overflow-x: hidden; /* Hide horizontal scroll from animations */
+  background: #000c1f; /* Very dark blue base */
+  font-family: 'Poppins', sans-serif;
+  color: #e0eaff; /* Light, soft white-blue text */
+  overflow-x: hidden;
 }
 
-/* Glowing neon text (heading style) */
-h1, h2, h3, h4, h5, h6 {
-  text-shadow: 0 0 6px rgba(177, 134, 255, 0.7), 0 0 10px rgba(177, 134, 255, 0.5);
-  font-weight: 600;
-}
-
-/* A subtle gradient “quantum swirl” animation as a background overlay */
+/* Swirling gradient background, updated with blues */
 body::before {
   content: "";
   position: fixed;
@@ -29,56 +24,68 @@ body::before {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(135deg, #532b86, #241234, #3a0675, #871ad2);
+  background: linear-gradient(135deg, #002147, #013a63, #025e9b, #0284c7);
   background-size: 400% 400%;
-  opacity: 0.15; /* Keep it subtle, so text is readable */
-  z-index: -1; /* behind the main content */
+  opacity: 0.1; /* Subtle so text is still readable */
+  z-index: -1;
   animation: swirl 20s ease-in-out infinite;
 }
 
 @keyframes swirl {
   0% {
-    background-position: 0% 50%
+    background-position: 0% 50%;
   }
   50% {
-    background-position: 100% 50%
+    background-position: 100% 50%;
   }
   100% {
-    background-position: 0% 50%
+    background-position: 0% 50%;
   }
 }
 
-/* Button style: neon glow and hover effect */
+/* Headings: neon-blue glow */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-shadow: 0 0 6px rgba(96, 207, 255, 0.7), 0 0 12px rgba(96, 207, 255, 0.5);
+  font-weight: 600;
+}
+
+/* Buttons: gradient in blues */
 button {
   cursor: pointer;
   padding: 0.75rem 1.5rem;
-  background: linear-gradient(90deg, #7f49c8, #aa4cf7);
-  color: #ffffff;
+  background: linear-gradient(90deg, #0284c7, #00c1ff);
+  color: #fff;
   border: none;
   border-radius: 4px;
   font-size: 1rem;
   text-shadow: 0 0 3px rgba(255, 255, 255, 0.4);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 12px rgba(192, 118, 255, 0.6);
+  box-shadow: 0 0 12px rgba(0, 193, 255, 0.6);
 }
 
-/* Link style: subtle underline on hover */
+/* Links: subtle glow on hover */
 a {
-  color: #c784ff;
+  color: #60d3ff;
   text-decoration: none;
   transition: text-shadow 0.2s ease;
 }
 a:hover {
-  text-shadow: 0 0 4px rgba(199, 132, 255, 0.7);
+  text-shadow: 0 0 4px rgba(96, 211, 255, 0.7);
 }
 
-/* Optional card or container style with a slight glass effect */
+/* Optional glass-like card style */
 .quantum-card {
   background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 2rem;
   border-radius: 8px;
   backdrop-filter: blur(5px);
