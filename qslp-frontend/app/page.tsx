@@ -9,12 +9,12 @@ export default function HomePage() {
   const [phase, setPhase] = useState<'intro' | 'fadeOut' | 'done'>('intro');
 
   useEffect(() => {
-    // 1) Keep the splash visible for ~1.5s before starting fade
+    // Keep the splash visible for ~1.5s before starting fade
     const fadeOutTimer = setTimeout(() => {
       setPhase('fadeOut');
     }, 1500);
 
-    // 2) After another 1s, hide the splash
+    // After another 1s, hide the splash
     const hideTimer = setTimeout(() => {
       setPhase('done');
     }, 2500);
@@ -38,59 +38,77 @@ export default function HomePage() {
       {/* SPLASH SCREEN */}
       <div className={splashClass}>
         <div className={styles.splashContent}>
-          {/* Logo from your layout */}
           <div className={styles.logo}>
             <img
               src="/image.png"
               alt="Quantum Society Logo"
               className={styles.logoImg}
             />
-            <h1><div className={styles.headerTitle}>Quantum Society</div> </h1>
+            <h1 className={styles.headerTitle}>Quantum Society</h1>
           </div>
-
-          {/* Big tagline in the splash */}
           <h1 className={styles.bigTagline}>
             Explore Quantum—For Everyone, From Anywhere.
           </h1>
         </div>
       </div>
 
-      {/* MAIN CONTENT FADES IN */}
-      <section className={styles.mainContent}>
-        <div style={{ padding: '2rem', textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
-          {/* If you want the tagline again in final page, replicate here */}
-          <h1 style={{ marginBottom: '1rem' }}>
-            Explore Quantum—For Everyone, From Anywhere.
-          </h1>
+      {/* MAIN CONTENT */}
+      <main className={styles.mainContent}>
+        <div className={styles.contentWrapper}>
+          {/* HERO SECTION: Tag Line and Video */}
+          <section className={styles.heroSection}>
+            <div className={styles.heroText}>
+              <h1 className={styles.introTitle}>
+                Explore Quantum—For Everyone, From Anywhere.
+              </h1>
+              {/* Hero subtext removed */}
+            </div>
+            <div className={styles.heroVideo}>
+              <iframe
+                src="https://www.youtube.com/embed/WW7DKcrQ-7E"
+                title="Quantum Intro Video"
+                allowFullScreen
+                loading="lazy"
+                style={{ border: 'none', width: '600px', height: '300px' }}
+              ></iframe>
+            </div>
+          </section>
 
-          <div style={{ marginBottom: '1rem' }}>
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/WW7DKcrQ-7E"
-              title="Quantum Intro Video"
-              allowFullScreen
-              style={{ border: 'none', maxWidth: '100%' }}
-            ></iframe>
-          </div>
+          {/* WELCOME SECTION */}
+          <section className={styles.welcomeSection}>
+            <h1 className={styles.welcomeMain}>Welcome to Quantum Society</h1>
+            <p className={styles.welcomeSub}>
+              We are an ever-growing community of curious minds pushing the boundaries of quantum science.
+              Join us to explore free research, interactive tools, and vibrant discussions that fuel the future of quantum technology.
+            </p>
+          </section>
 
-          <p style={{ marginBottom: '1.5rem', lineHeight: '1.5' }}>
-            Welcome to our next-generation quantum learning platform—your gateway
-            to free papers, interactive tools, and a vibrant community.
-          </p>
+          {/* BUTTONS SECTION */}
+          <section className={styles.buttonSection}>
+            <div className={styles.buttonGroup}>
+              <Link href="/learning">
+                <div className={styles.customButton}>
+                  <span className={styles.defaultText}>Start Learning</span>
+                  <span className={styles.hoverText}>
+                    Curious to learn about Quantum? Awesome! Let's start from the basics.
+                  </span>
+                </div>
+              </Link>
+              <Link href="/courses">
+                <div className={styles.customButton}>
+                  <span className={styles.defaultText}>Dive Deeper</span>
+                  <span className={styles.hoverText}>
+                    Already have your basics right? Dive Deeper into the future! Quantum Computing.
+                  </span>
+                </div>
+              </Link>
+            </div>
+          </section>
 
-          <div style={{ marginBottom: '2rem' }}>
-            <Link href="/learning">
-              <button style={{ marginRight: '1rem' }}>Start Learning</button>
-            </Link>
-            <Link href="/courses">
-              <button>Dive Deeper</button>
-            </Link>
-          </div>
-
-          <div style={{ marginBottom: '2rem' }}>
-            <h2>See the Industry’s Quantum Future</h2>
-            <p style={{ margin: '0.5rem 0' }}>
+          {/* RESOURCES SECTION */}
+          <section className={styles.resourcesSection}>
+            <h2 className={styles.resourcesTitle}>Discover Industry Insights</h2>
+            <div className={styles.resourcesLinks}>
               <a
                 href="https://science.osti.gov/-/media/QIS/pdf/DOE_QIS_Roadmap_Final.pdf"
                 target="_blank"
@@ -98,7 +116,7 @@ export default function HomePage() {
               >
                 U.S. DOE ROADMAP to Quantum Advantage
               </a>
-              {' '}|{' '}
+              <span className={styles.linkSeparator}>|</span>
               <a
                 href="https://www.ibm.com/roadmaps/quantum.pdf"
                 target="_blank"
@@ -106,27 +124,10 @@ export default function HomePage() {
               >
                 IBM Quantum Development Roadmap
               </a>
-            </p>
-          </div>
-
-          <div>
-            <h3>What’s Inside:</h3>
-            <ul
-              style={{
-                marginTop: '0.5rem',
-                listStyle: 'disc',
-                display: 'inline-block',
-                textAlign: 'left',
-              }}
-            >
-              <li>Free papers summarizing the latest quantum breakthroughs</li>
-              <li>Interactive tools to experiment with quantum circuits</li>
-              <li>A collaborative community for Q&amp;A and code sharing</li>
-              <li>Step-by-step tutorials from basic qubits to advanced algorithms</li>
-            </ul>
-          </div>
+            </div>
+          </section>
         </div>
-      </section>
+      </main>
     </>
   );
 }

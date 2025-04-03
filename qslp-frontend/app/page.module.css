@@ -1,5 +1,3 @@
-/* app/page.module.css */
-
 /* --- SPLASH SCREEN --- */
 .splashContainer {
   position: fixed;
@@ -7,15 +5,15 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: #000c1f; /* dark neon-blue background */
+  background: #000c1f;
   display: flex;
-  flex-direction: column; /* stack elements vertically */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 999; /* on top of everything */
+  z-index: 999;
   overflow: hidden;
-  opacity: 1; /* start fully visible */
-  transition: opacity 1s ease; /* fade out effect */
+  opacity: 1;
+  transition: opacity 1s ease;
 }
 
 .fadeOut {
@@ -26,7 +24,6 @@
   display: none;
 }
 
-/* The container for your logo + tagline in the splash screen */
 .splashContent {
   display: flex;
   flex-direction: column;
@@ -34,7 +31,7 @@
   gap: 1rem;
 }
 
-/* LOGO / TITLE STYLES */
+/* Logo and Title */
 .logo {
   display: flex;
   align-items: center;
@@ -42,31 +39,31 @@
 }
 
 .logoImg {
-  height: 50px; 
+  height: 50px;
   width: auto;
 }
 
 .headerTitle {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #60d3ff; /* neon blue color */
-  text-shadow: 0 0 6px rgba(96, 207, 255, 0.7), 0 0 12px rgba(96, 207, 255, 0.5);
-}
-
-/* BIG TAGLINE STYLES */
-.bigTagline {
-  font-size: 1.8rem; /* Desktop size */
   color: #60d3ff;
-  text-shadow: 
-    0 0 10px rgba(96, 211, 255, 1),
-    0 0 20px rgba(96, 211, 255, 0.7);
+  text-shadow: 0 0 6px rgba(96, 207, 255, 0.7),
+               0 0 12px rgba(96, 207, 255, 0.5);
 }
 
-/* --- MAIN CONTENT (FADES IN) --- */
+/* Big Tagline */
+.bigTagline {
+  font-size: 1.8rem;
+  color: #60d3ff;
+  text-shadow: 0 0 10px rgba(96, 211, 255, 1),
+               0 0 20px rgba(96, 211, 255, 0.7);
+}
+
+/* --- MAIN CONTENT --- */
 .mainContent {
-  opacity: 0; /* hidden initially */
+  opacity: 0;
   animation: fadeIn 1s ease forwards;
-  animation-delay: 1.5s; /* crossfade timing with splash fade out */
+  animation-delay: 1.5s;
 }
 
 @keyframes fadeIn {
@@ -75,36 +72,192 @@
   }
 }
 
-/* --- RESPONSIVE / MOBILE QUERIES --- */
+.contentWrapper {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
+/* HERO SECTION: Tag Line and Video */
+.heroSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.heroText {
+  flex: 1;
+  color: #ffffff;
+}
+
+.introTitle {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #60d3ff; /* Hero heading in blue */
+}
+
+.heroVideo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* WELCOME SECTION */
+.welcomeSection {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: rgba(96, 211, 255, 0.1);
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.welcomeMain {
+  font-size: 2rem;
+  color: #60d3ff;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.welcomeSub {
+  font-size: 1.25rem;
+  color: #dddddd;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* BUTTONS SECTION */
+.buttonSection {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.buttonGroup {
+  display: inline-flex;
+  gap: 1rem;
+}
+
+/* Custom Button with Smooth Expansion */
+.customButton {
+  position: relative;
+  background-color: #60d3ff;
+  border-radius: 4px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  
+  /* Fixed initial dimensions */
+  width: 220px;
+  height: 50px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.customButton:hover {
+  width: 300px;
+  height: 80px;
+  background-color: #48a9e6;
+}
+
+/* Button Text */
+.defaultText,
+.hoverText {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  transition: opacity 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.defaultText {
+  opacity: 1;
+}
+
+.hoverText {
+  opacity: 0;
+}
+
+.customButton:hover .defaultText {
+  opacity: 0;
+}
+
+.customButton:hover .hoverText {
+  opacity: 1;
+}
+
+/* RESOURCES SECTION */
+.resourcesSection {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.resourcesTitle {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.resourcesLinks {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.125rem;
+}
+
+.resourcesLinks a {
+  color: #60d3ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.resourcesLinks a:hover {
+  color: #48a9e6;
+}
+
+.linkSeparator {
+  color: #ffffff;
+}
+
+/* RESPONSIVE STYLES */
 @media (max-width: 768px) {
-  /* If the screen is less than or equal to 768px wide (tablets/phones) */
-
-  .bigTagline {
-    font-size: 1.3rem; /* smaller tagline for mobile */
+  .heroSection {
+    flex-direction: column;
   }
-
-  .headerTitle {
-    font-size: 1rem;
+  .introTitle {
+    font-size: 2rem;
   }
-
-  .logoImg {
-    height: 40px; 
+  .heroVideo iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1; /* maintain 1:1 ratio */
+  }
+  .buttonGroup {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
 @media (max-width: 480px) {
-  /* Even smaller phones */
-
-  .bigTagline {
-    font-size: 1.1rem; 
+  .introTitle {
+    font-size: 1.75rem;
   }
-
-  .headerTitle {
-    font-size: 0.9rem;
-  }
-
   .logoImg {
-    height: 30px; 
+    height: 40px;
+  }
+  .headerTitle {
+    font-size: 1rem;
+  }
+  .welcomeSub {
+    font-size: 1rem;
   }
 }
