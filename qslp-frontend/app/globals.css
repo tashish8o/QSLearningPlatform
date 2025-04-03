@@ -1,6 +1,6 @@
 /* app/globals.css */
 
-/* Reset / Base */
+/* Basic Reset */
 * {
   margin: 0;
   padding: 0;
@@ -10,52 +10,57 @@
 html,
 body {
   height: 100%;
-  background: #000c1f; /* Very dark blue base */
+  background: #000c1f; /* dark navy */
   font-family: 'Poppins', sans-serif;
-  color: #e0eaff; /* Light, soft white-blue text */
+  color: #e0eaff; 
   overflow-x: hidden;
 }
 
-/* Swirling gradient background, updated with blues */
-body::before {
+/* Starfield background using pseudo-elements */
+body::before,
+body::after {
   content: "";
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(135deg, #002147, #013a63, #025e9b, #0284c7);
-  background-size: 400% 400%;
-  opacity: 0.1; /* Subtle so text is still readable */
-  z-index: -1;
-  animation: swirl 20s ease-in-out infinite;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  background-repeat: repeat;
+  background-size: contain;
+  opacity: 0.2; 
+  animation: starScroll 60s linear infinite;
+  z-index: -2; 
 }
 
-@keyframes swirl {
+body::before {
+  background-image: url('/stars-layer1.png'); /* A small star texture image */
+  animation-duration: 80s; /* slower scroll */
+}
+
+body::after {
+  background-image: url('/stars-layer2.png'); /* Another star texture, or the same with different scale */
+  animation-duration: 120s; /* different speed for parallax effect */
+}
+
+@keyframes starScroll {
   0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    background-position: 0% 50%;
+    transform: translate3d(-50%, -50%, 0);
   }
 }
 
-/* Neon-blue glow for headings */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/* Glow effect for headings */
+h1, h2, h3, h4, h5, h6 {
   text-shadow: 0 0 6px rgba(96, 207, 255, 0.7), 0 0 12px rgba(96, 207, 255, 0.5);
   font-weight: 600;
 }
 
-/* Buttons: gradient in blues */
+/* Buttons, links, etc. remain from your original or updated theme */
 button {
+  /* same styling as before or improved to your liking */
   cursor: pointer;
   padding: 0.75rem 1.5rem;
   background: linear-gradient(90deg, #0284c7, #00c1ff);
@@ -66,13 +71,11 @@ button {
   text-shadow: 0 0 3px rgba(255, 255, 255, 0.4);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 button:hover {
   transform: translateY(-2px);
   box-shadow: 0 0 12px rgba(0, 193, 255, 0.6);
 }
 
-/* Links: glow on hover */
 a {
   color: #60d3ff;
   text-decoration: none;
@@ -82,53 +85,16 @@ a:hover {
   text-shadow: 0 0 4px rgba(96, 211, 255, 0.7);
 }
 
-/* Make iframe/img shrink on smaller screens */
-iframe,
-img {
+/* Make iframes and images responsive */
+iframe, img {
   max-width: 100%;
   height: auto;
 }
 
-/* Example card with translucent background */
-.quantum-card {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 2rem;
-  border-radius: 8px;
-  backdrop-filter: blur(5px);
-  margin-bottom: 1.5rem;
-}
-
-/* MEDIA QUERIES for Responsiveness */
-
-/* ~~~ Tablet breakpoint ~~~ */
+/* Media queries for responsiveness (buttons, text, etc.) ... */
 @media (max-width: 768px) {
-  /* Optional: reduce swirl opacity on smaller screens */
-  body::before {
-    opacity: 0.08;
-  }
-
-  /* Smaller headings on mobile */
-  h1,
-  h2 {
-    font-size: 1.25rem;
-  }
-
-  /* Reduce button padding & font size */
-  button {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-  }
-
-  /* Smaller card padding on mobile */
-  .quantum-card {
-    padding: 1rem;
-  }
-}
-
-/* ~~~ Phone breakpoint ~~~ */
-@media (max-width: 480px) {
+  /* Adjust text, heading sizes, etc. as needed */
   h1 {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
   }
 }

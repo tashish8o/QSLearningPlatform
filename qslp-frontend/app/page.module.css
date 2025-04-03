@@ -1,14 +1,110 @@
 /* app/page.module.css */
 
-.fadeInUp {
-    animation: fadeInUp 1s ease forwards;
-    opacity: 0; /* Start hidden */
-    transform: translateY(10px); /* Slightly below original position */
+/* --- SPLASH SCREEN --- */
+.splashContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000c1f; /* dark neon-blue background */
+  display: flex;
+  flex-direction: column; /* stack elements vertically */
+  align-items: center;
+  justify-content: center;
+  z-index: 999; /* on top of everything */
+  overflow: hidden;
+  opacity: 1; /* start fully visible */
+  transition: opacity 1s ease; /* fade out effect */
+}
+
+.fadeOut {
+  opacity: 0;
+}
+
+.hideSplash {
+  display: none;
+}
+
+/* The container for your logo + tagline in the splash screen */
+.splashContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* LOGO / TITLE STYLES */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoImg {
+  height: 50px; 
+  width: auto;
+}
+
+.headerTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #60d3ff; /* neon blue color */
+  text-shadow: 0 0 6px rgba(96, 207, 255, 0.7), 0 0 12px rgba(96, 207, 255, 0.5);
+}
+
+/* BIG TAGLINE STYLES */
+.bigTagline {
+  font-size: 1.8rem; /* Desktop size */
+  color: #60d3ff;
+  text-shadow: 
+    0 0 10px rgba(96, 211, 255, 1),
+    0 0 20px rgba(96, 211, 255, 0.7);
+}
+
+/* --- MAIN CONTENT (FADES IN) --- */
+.mainContent {
+  opacity: 0; /* hidden initially */
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 1.5s; /* crossfade timing with splash fade out */
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
   }
-  
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+}
+
+/* --- RESPONSIVE / MOBILE QUERIES --- */
+
+@media (max-width: 768px) {
+  /* If the screen is less than or equal to 768px wide (tablets/phones) */
+
+  .bigTagline {
+    font-size: 1.3rem; /* smaller tagline for mobile */
   }
+
+  .headerTitle {
+    font-size: 1rem;
+  }
+
+  .logoImg {
+    height: 40px; 
+  }
+}
+
+@media (max-width: 480px) {
+  /* Even smaller phones */
+
+  .bigTagline {
+    font-size: 1.1rem; 
+  }
+
+  .headerTitle {
+    font-size: 0.9rem;
+  }
+
+  .logoImg {
+    height: 30px; 
+  }
+}
