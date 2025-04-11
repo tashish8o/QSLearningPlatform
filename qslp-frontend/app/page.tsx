@@ -90,7 +90,7 @@ export default function HomePage() {
                 <div className={styles.customButton}>
                   <span className={styles.defaultText}>Start Learning</span>
                   <span className={styles.hoverText}>
-                    Curious to learn about Quantum? Awesome! Start from the basics.
+                    Curious to learn about Quantum? Awesome! Let's start from the basics.
                   </span>
                 </div>
               </Link>
