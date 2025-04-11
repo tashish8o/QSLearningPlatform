@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <header className={styles.header}>
           <div className={styles.logo}>
             <img
-              src="/image.png"
+              src="/welcome/qslogo.png"
               alt="Quantum Society Logo"
               className={styles.logoImg}
             />

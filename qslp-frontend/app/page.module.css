@@ -78,59 +78,159 @@
   margin: 0 auto;
 }
 
-/* HERO SECTION: Tag Line and Video */
-.heroSection {
+/* COMBINED HERO & WELCOME SECTION (Full Screen) */
+.heroWelcomeSection {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  background: url('/welcome/background.png') center/cover no-repeat;
+  /* Replace '/heropic.png' with your actual background image path */
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-.heroText {
-  flex: 1;
-  color: #ffffff;
-}
-
-.introTitle {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #60d3ff; /* Hero heading in blue */
-}
-
-.heroVideo {
-  flex: 1;
-  display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
-/* WELCOME SECTION */
-.welcomeSection {
+.heroWelcomeOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.heroWelcomeContent {
+  position: relative;
+  z-index: 2;
   text-align: center;
-  padding: 1.5rem;
-  background-color: rgba(96, 211, 255, 0.1);
-  border-radius: 8px;
-  margin-bottom: 2rem;
+  color: #ffffff;
+  max-width: 800px;
+  padding: 2rem;
 }
 
-.welcomeMain {
-  font-size: 2rem;
-  color: #60d3ff;
+.combinedTitle {
+  font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
 
-.welcomeSub {
+.combinedSubtitle {
+  font-size: 2rem;
+  margin-top: 0.5rem;
+}
+
+.combinedDescription {
   font-size: 1.25rem;
-  color: #dddddd;
-  max-width: 800px;
+  margin-top: 1rem;
+}
+
+/* VIDEO SECTION */
+.videoSection {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.videoContainer {
+  display: flex;
+  justify-content: center;
+}
+
+/* MISSION & VISION SECTION */
+.missionVisionSection {
+  padding: 3rem 1rem;
+  max-width: 1200px;
   margin: 0 auto;
+  text-align: center;  /* Center-align all text in the section */
+  background: none;    /* Remove any background color to blend in */
+}
+
+.missionVisionTitle {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #60d3ff;
+  text-align: center;  /* Center the title */
+}
+
+.missionVisionFlex {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;    /* Allow blocks to stack on small screens */
+}
+
+.mvBlock {
+  flex: 1;
+  max-width: 500px;   /* Optional: limit width so they don't stretch too wide */
+  background: transparent;  /* Transparent so it blends with the page */
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.mvImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.mvHeading {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.mvText {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #cccccc;
+}
+
+/* EVENTS CAROUSEL SECTION */
+.eventsSection {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+  text-align: center;
+}
+
+.eventsTitle {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #60d3ff;
+}
+
+.eventItem {
+  padding: 1rem;
+  outline: none;
+}
+
+.eventImage {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.eventText {
+  text-align: left;
+}
+
+.eventTitle {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.eventDescription {
+  font-size: 1rem;
+  color: #cccccc;
+  line-height: 1.4;
 }
 
 /* BUTTONS SECTION */
 .buttonSection {
   text-align: center;
-  margin-bottom: 2rem;
 }
 
 .buttonGroup {
@@ -149,7 +249,6 @@
   transition: all 0.3s ease;
   overflow: hidden;
   
-  /* Fixed initial dimensions */
   width: 220px;
   height: 50px;
   
@@ -165,7 +264,6 @@
   background-color: #48a9e6;
 }
 
-/* Button Text */
 .defaultText,
 .hoverText {
   position: absolute;
@@ -195,6 +293,57 @@
   opacity: 1;
 }
 
+/* OUR TEAM SECTION */
+.orgSection {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  background: none;         /* Remove distinct background */
+  color: inherit;           /* Use inherited text color */
+}
+
+.orgTitle {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #60d3ff;
+  text-align: center;
+}
+
+.orgMembers {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.member {
+  background: transparent;  /* Remove the dark background */
+  padding: 1rem;
+  border-radius: 8px;
+  width: 200px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.memberImg {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 0.75rem;
+}
+
+.memberName {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+  color: #60d3ff;
+}
+
+.memberTitle {
+  font-size: 1rem;
+  color: #cccccc;
+}
+
 /* RESOURCES SECTION */
 .resourcesSection {
   margin-bottom: 2rem;
@@ -204,7 +353,7 @@
 .resourcesTitle {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
-  color: #60d3ff;
+  color: #ffffff;
 }
 
 .resourcesLinks {
@@ -215,7 +364,7 @@
 }
 
 .resourcesLinks a {
-  color: #60d3ff;
+  color: #ffffff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -228,28 +377,47 @@
   color: #ffffff;
 }
 
+
+
 /* RESPONSIVE STYLES */
 @media (max-width: 768px) {
-  .heroSection {
-    flex-direction: column;
-  }
-  .introTitle {
+  .combinedTitle {
     font-size: 2rem;
   }
-  .heroVideo iframe {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1/1; /* maintain 1:1 ratio */
+  .combinedSubtitle {
+    font-size: 1.75rem;
+  }
+  .combinedDescription {
+    font-size: 1.125rem;
   }
   .buttonGroup {
     flex-direction: column;
     align-items: center;
   }
+  .missionVisionFlex {
+    flex-direction: column;
+  }
+  .orgMembers {
+    flex-direction: column;
+    align-items: center;
+  }
+  .eventTitle {
+    font-size: 1.1rem;
+  }
+  .eventDescription {
+    font-size: 0.95rem;
+  }
 }
 
 @media (max-width: 480px) {
-  .introTitle {
+  .combinedTitle {
     font-size: 1.75rem;
+  }
+  .heroWelcomeContent {
+    padding: 1rem;
+  }
+  .buttonGroup {
+    gap: 0.75rem;
   }
   .logoImg {
     height: 40px;
