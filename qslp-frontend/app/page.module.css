@@ -61,6 +61,7 @@
 
 /* --- MAIN CONTENT --- */
 .mainContent {
+  padding: 0; /* <-- make sure this is explicitly 0 */
   opacity: 0;
   animation: fadeIn 1s ease forwards;
   animation-delay: 1.5s;
@@ -73,23 +74,74 @@
 }
 
 .contentWrapper {
-  padding: 2rem;
+  padding: 0;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* COMBINED HERO & WELCOME SECTION (Full Screen) */
+.combinedTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #60d3ff;
+  margin-bottom: 1rem;
+
+
+}
+
+.typingText {
+  font-family: inherit; /* Inherit from parent if your heading uses a special font */
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  letter-spacing: 0.5px;
+  font-size: 1.8rem;
+  color: #60d3ff;
+}
+
+
+.cursor {
+  display: inline-block;
+  width: 1px;
+  background-color: #60d3ff;
+  animation: blink 0.75s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.fadeInTitle {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fadeZoomIn 1s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeZoomIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+
 .heroWelcomeSection {
   position: relative;
-  width: 100%;
-  height: 100vh; /* Full viewport height */
-  background: url('/welcome/background.png') center/cover no-repeat;
-  /* Replace '/heropic.png' with your actual background image path */
+  width: 100vw; /* full viewport width */
+  height: 100vh; /* full viewport height */
+  background: url('/welcome/background.png') center center / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  margin-left: calc(-50vw + 50%);
 }
+
 
 .heroWelcomeOverlay {
   position: absolute;
@@ -102,25 +154,22 @@
   position: relative;
   z-index: 2;
   text-align: center;
-  color: #ffffff;
-  max-width: 800px;
-  padding: 2rem;
+  color: white;
+  transform: translateY(-80px); /* Move the text upward */
 }
 
 .combinedTitle {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  color: #60d3ff;
+  margin: 0;
+  text-transform: uppercase;
 }
 
-.combinedSubtitle {
-  font-size: 2rem;
-  margin-top: 0.5rem;
-}
-
-.combinedDescription {
+.heroSubtitle {
   font-size: 1.25rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+  color: #ffffff;
 }
 
 /* VIDEO SECTION */
@@ -339,6 +388,7 @@
   color: #60d3ff;
 }
 
+
 .memberTitle {
   font-size: 1rem;
   color: #cccccc;
@@ -378,6 +428,64 @@
 }
 
 
+/* KEEP IN TOUCH SECTION */
+.keepInTouchSection {
+  text-align: center;
+  padding: 3rem 1rem;
+  border-top: 1px solid #333;
+  margin-top: 3rem;
+}
+
+.keepInTouchTitle {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #60d3ff;
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ffffff;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.socialLink:hover {
+  color: #60d3ff;
+}
+
+.socialIcon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+
+/* Typing animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
 
 /* RESPONSIVE STYLES */
 @media (max-width: 768px) {
@@ -409,23 +517,50 @@
   }
 }
 
-@media (max-width: 480px) {
-  .combinedTitle {
-    font-size: 1.75rem;
-  }
+@media (max-width: 768px) {
   .heroWelcomeContent {
-    padding: 1rem;
+    transform: translateY(-40px);
   }
-  .buttonGroup {
-    gap: 0.75rem;
+}
+
+/* Animate Title */
+.animatedTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #60d3ff;
+  margin: 0;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: scale(0.85);
+  animation: fadeScaleUp 1s ease-out forwards;
+}
+
+@keyframes fadeScaleUp {
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
-  .logoImg {
-    height: 40px;
-  }
-  .headerTitle {
-    font-size: 1rem;
-  }
-  .welcomeSub {
-    font-size: 1rem;
+}
+
+/* Typing Effect */
+.typingText {
+  font-size: 1.25rem;
+  color: white;
+  margin-top: 0.75rem;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.cursor {
+  display: inline-block;
+  width: 1px;
+  background-color: #60d3ff;
+  animation: blink 0.75s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
   }
 }

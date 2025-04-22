@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </nav>
         </header>
 
-        <main style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
+        <main style={{ maxWidth: '1200px', margin: '0 auto' }}>
           {children}
         </main>
 

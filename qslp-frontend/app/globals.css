@@ -14,6 +14,10 @@ body {
   font-family: 'Poppins', sans-serif;
   color: #e0eaff; 
   overflow-x: hidden;
+  
+    margin: 0;
+    padding: 0;
+  
 }
 
 /* Starfield background using pseudo-elements */

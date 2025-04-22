@@ -6,11 +6,22 @@ import dynamic from 'next/dynamic';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import styles from './page.module.css';
+import { usePathname } from 'next/navigation';
+
+
 
 // Dynamically import Slider from react-slick with SSR disabled
 const Slider = dynamic(() => import("react-slick"), { ssr: false });
 
 export default function HomePage() {
+
+  
+
+const pathname = usePathname();
+
+useEffect(() => {
+  setAnimationKey(Date.now()); // regenerate key if route changes
+}, [pathname]);
   const [phase, setPhase] = useState<'intro' | 'fadeOut' | 'done'>('intro');
 
   useEffect(() => {
@@ -65,7 +76,7 @@ export default function HomePage() {
     ],
   };
 
-  // Example events data; replace with your actual details
+
   const events = [
     {
       image: '/welcome/events/qshackathon.png',
@@ -93,6 +104,21 @@ export default function HomePage() {
       description: 'Quantum Society hosted a lecture series in the Japanese Innovation center in Palo Alto.',
     }
   ];
+  const [typedText, setTypedText] = useState("");
+  const [animationKey, setAnimationKey] = useState(Date.now());
+  
+  useEffect(() => {
+    const fullText = "For everyone, from anywhere";
+    let i = 0;
+    const interval = setInterval(() => {
+      setTypedText(fullText.slice(0, i + 1));
+      i++;
+      if (i === fullText.length) clearInterval(interval);
+    }, 60);
+  
+    return () => clearInterval(interval);
+  }, [animationKey]);
+;
 
   return (
     <>
@@ -112,22 +138,18 @@ export default function HomePage() {
       {/* MAIN CONTENT */}
       <main className={styles.mainContent}>
         <div className={styles.contentWrapper}>
-          {/* COMBINED HERO & WELCOME SECTION */}
-          <section className={styles.heroWelcomeSection}>
-            <div className={styles.heroWelcomeOverlay}></div>
-            <div className={styles.heroWelcomeContent}>
-              <h1 className={styles.combinedTitle}>
-                Explore Quantum—For Everyone, From Anywhere.
-              </h1>
-              <h2 className={styles.combinedSubtitle}>
-                Welcome to Quantum Society
-              </h2>
-              <p className={styles.combinedDescription}>
-                Quantum Society is an ever-growing community of curious minds pushing the boundaries of quantum science.
-                Join us to explore free research, interactive tools, and vibrant discussions that fuel the future of quantum technology.
-              </p>
-            </div>
-          </section>
+          
+        {/* COMBINED HERO & WELCOME SECTION */}
+        <section className={styles.heroWelcomeSection}>
+  <div className={styles.heroWelcomeOverlay}></div>
+  <div key={animationKey} className={styles.heroWelcomeContent}>
+    <h1 className={styles.animatedTitle}>EXPLORE QUANTUM</h1>
+    <p className={styles.typingText}>
+      {typedText}
+      <span className={styles.cursor}>|</span>
+    </p>
+  </div>
+</section>
 
           {/* VIDEO SECTION */}
           <section className={styles.videoSection}>
@@ -166,7 +188,12 @@ export default function HomePage() {
 
           {/* MISSION & VISION SECTION */}
           <section className={styles.missionVisionSection}>
-            <h2 className={styles.missionVisionTitle}>About Quantum Society</h2>
+            <h2 className={styles.missionVisionTitle}>Welcome to Quantum Society</h2>
+            <div style={{padding: "1rem", fontSize: "1.5rem"}}>
+
+            Quantum Society is an ever-growing community of curious minds pushing the boundaries of quantum science. Join us to explore free research, interactive tools, and vibrant discussions that fuel the future of quantum technology
+
+            </div>
             <div className={styles.missionVisionFlex}>
               <div className={styles.mvBlock}>
                 <img src="/welcome/mission.png" alt="Mission" className={styles.mvImage} />
@@ -185,39 +212,56 @@ export default function HomePage() {
             </div>
           </section>
 
-                    {/* OUR TEAM SECTION */}
-                    <section className={styles.orgSection}>
-            <h2 className={styles.orgTitle}>Our Team</h2>
-            <div className={styles.orgMembers}>
-              <div className={styles.member}>
-                <img
-                  src="/welcome/team/anto.png"
-                  alt="Anto Patrex"
-                  className={styles.memberImg}
-                />
-                <h3 className={styles.memberName}>Anto Patrex</h3>
-                <p className={styles.memberTitle}>Head of Technology</p>
-              </div>
-              <div className={styles.member}>
-                <img
-                  src="/welcome/team/megan.png"
-                  alt="Megan Kain"
-                  className={styles.memberImg}
-                />
-                <h3 className={styles.memberName}>Megan Kain</h3>
-                <p className={styles.memberTitle}>Head of Operation</p>
-              </div>
-              <div className={styles.member}>
-                <img
-                  src="/welcome/team/kiara.png"
-                  alt="Kiara Diaz"
-                  className={styles.memberImg}
-                />
-                <h3 className={styles.memberName}>Kiara Diaz</h3>
-                <p className={styles.memberTitle}>Head of Public Relations</p>
-              </div>
-            </div>
-          </section>
+{/* OUR TEAM SECTION */}
+<section className={styles.orgSection}>
+  <h2 className={styles.orgTitle}>Our Team</h2>
+  <div className={styles.orgMembers}>
+    <a
+      href="https://www.linkedin.com/in/antopatrex/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className={styles.member}
+    >
+      <img
+        src="/welcome/team/anto.png"
+        alt="Anto Patrex"
+        className={styles.memberImg}
+      />
+      <h3 className={styles.memberName}>Anto Patrex</h3>
+      <p className={styles.memberTitle}>Head of Technology</p>
+    </a>
+
+    <a
+      href="https://www.linkedin.com/in/megan-kain/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className={styles.member}
+    >
+      <img
+        src="/welcome/team/megan.png"
+        alt="Megan Kain"
+        className={styles.memberImg}
+      />
+      <h3 className={styles.memberName}>Megan Kain</h3>
+      <p className={styles.memberTitle}>Head of Operation</p>
+    </a>
+
+    <a
+      href="https://www.linkedin.com/in/danaekiaradiaz/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className={styles.member}
+    >
+      <img
+        src="/welcome/team/kiara.png"
+        alt="Kiara Diaz"
+        className={styles.memberImg}
+      />
+      <h3 className={styles.memberName}>Kiara Diaz</h3>
+      <p className={styles.memberTitle}>Head of Public Relations</p>
+    </a>
+  </div>
+</section>
 
           {/* EVENTS CAROUSEL SECTION */}
           <section className={styles.eventsSection}>
@@ -234,6 +278,35 @@ export default function HomePage() {
               ))}
             </Slider>
           </section>
+
+          {/* KEEP IN TOUCH SECTION */}
+<section className={styles.keepInTouchSection}>
+  <h2 className={styles.keepInTouchTitle}>Keep in Touch</h2>
+  <div className={styles.socialLinks}>
+    <a
+      href="https://www.instagram.com/quantumsociety0/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className={styles.socialLink}
+    >
+      <svg className={styles.socialIcon} viewBox="0 0 24 24" fill="currentColor">
+        <path d="M7.75 2C4.57 2 2 4.58 2 7.75v8.5C2 19.43 4.57 22 7.75 22h8.5C19.43 22 22 19.42 22 16.25v-8.5C22 4.57 19.42 2 16.25 2h-8.5zm0 1.5h8.5c2.17 0 3.75 1.58 3.75 3.75v8.5c0 2.17-1.58 3.75-3.75 3.75h-8.5A3.76 3.76 0 0 1 4 16.25v-8.5C4 5.33 5.58 3.75 7.75 3.75zm4.25 3.25a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 1.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7zm5.25-.75a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5z"/>
+      </svg>
+      Instagram
+    </a>
+    <a
+      href="https://www.linkedin.com/company/quantumsociety/posts/?feedView=all"
+      target="_blank"
+      rel="noopener noreferrer"
+      className={styles.socialLink}
+    >
+      <svg className={styles.socialIcon} viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19 3A2 2 0 0 1 21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-9.75 7H7v7h2.25v-7zM8.12 6.75a1.31 1.31 0 1 0 0 2.62 1.31 1.31 0 0 0 0-2.62zM17 13.25c0-2.15-1.15-3.25-2.69-3.25-1.17 0-1.7.64-2 1.09v-.94H10v7h2.25v-3.89c.18-.32.57-.64 1.11-.64.74 0 1.14.48 1.14 1.38v3.15H17v-3.9z"/>
+      </svg>
+      LinkedIn
+    </a>
+  </div>
+</section>
 
 
 
