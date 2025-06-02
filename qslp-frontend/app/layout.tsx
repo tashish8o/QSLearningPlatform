@@ -21,6 +21,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body>
         <header className={styles.header}>
+          <Link href="/">
           <div className={styles.logo}>
             <img
               src="/welcome/qslogo.png"
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             />
             <div className={styles.headerTitle}>Quantum Society</div>
           </div>
+          </Link>
           <nav className={styles.nav}>
             <Link href="/">Home</Link>
             <Link href="/learning">Learning</Link>
