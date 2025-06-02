@@ -76,7 +76,7 @@ useEffect(() => {
         header: true,
         skipEmptyLines: true,
         complete: (result) => {
-const parsed: EventRow[] = (result.data as any[]).map((row: any) => {
+const parsed: EventRow[] = (result.data as Record<string, string>[]).map((row) => {
   const rawImage = row["Image URL"]?.trim() ?? "";
   let imageUrl = "";
 
@@ -112,7 +112,7 @@ const filtered: EventRow[] = parsed.filter(ev => {
 
 setEvents(filtered);
         },
-        error: (err: any) => console.error("CSV parse error:", err),
+        error: (err) => console.error("CSV parse error:", err),
       });
     })
     .catch((err) => console.error("Failed to fetch CSV:", err));
