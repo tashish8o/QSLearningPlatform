@@ -1,0 +1,42 @@
+/* components/MissionVisionSection.module.css */
+.section {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #003366;
+}
+
+.intro {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.block {
+  max-width: 300px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.heading {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+}
+
+.text {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}

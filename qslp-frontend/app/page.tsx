@@ -138,7 +138,7 @@ const sliderSettings = {
   // Typing effect for hero subtitle
   const [typedText, setTypedText] = useState("");
   useEffect(() => {
-    const fullText = "For everyone, from anywhere";
+    const fullText = "Be Ready. Join the Movement.";
     let i = 0;
     const interval = setInterval(() => {
       setTypedText(fullText.slice(0, i + 1));
@@ -159,7 +159,7 @@ const sliderSettings = {
               alt="Quantum Society Logo"
               className={styles.logoImg}
             />
-            <h1 className={styles.headerTitle}>Quantum Society</h1>
+            <h1 className={styles.headerTitle}></h1>
           </div>
           <h1 className={styles.bigTagline}>
             Explore Quantum—For Everyone, From Anywhere.
@@ -175,48 +175,21 @@ const sliderSettings = {
           <section className={styles.heroWelcomeSection}>
             <div className={styles.heroWelcomeOverlay}></div>
             <div key={animationKey} className={styles.heroWelcomeContent}>
-              <h1 className={styles.animatedTitle}>EXPLORE QUANTUM</h1>
+              <h1 className={styles.animatedTitle}> The Quantum Revolution Is Coming.
+          </h1>
               <p className={styles.typingText}>
                 {typedText}
                 <span className={styles.cursor}>|</span>
+                <br/>
+                <a href="/community" className={styles.joinButton}>Join</a>
               </p>
             </div>
+
+          
           </section>
 
-          {/* VIDEO */}
-          <section className={styles.videoSection}>
-            <div className={styles.videoContainer}>
-              <iframe
-                src="https://www.youtube.com/embed/WW7DKcrQ-7E"
-                title="Quantum Intro Video"
-                allowFullScreen
-                loading="lazy"
-                style={{ border: 'none', width: '600px', height: '300px' }}
-              />
-            </div>
-          </section>
 
-          {/* BUTTONS */}
-          <section className={styles.buttonSection}>
-            <div className={styles.buttonGroup}>
-              <Link href="/learning">
-                <div className={styles.customButton}>
-                  <span className={styles.defaultText}>Start Learning</span>
-                  <span className={styles.hoverText}>
-                    Curious to learn about Quantum? Awesome! Let’s start from the basics.
-                  </span>
-                </div>
-              </Link>
-              <Link href="/courses">
-                <div className={styles.customButton}>
-                  <span className={styles.defaultText}>Dive Deeper</span>
-                  <span className={styles.hoverText}>
-                    Already know the basics? Dive deeper into the future of Quantum Computing.
-                  </span>
-                </div>
-              </Link>
-            </div>
-          </section>
+
 
           {/* MISSION & VISION */}
           <section className={styles.missionVisionSection}>
@@ -256,16 +229,7 @@ const sliderSettings = {
                 <h3 className={styles.memberName}>Anto Patrex</h3>
                 <p className={styles.memberTitle}>Head of Technology</p>
               </a>
-              <a
-                href="https://www.linkedin.com/in/megan-kain/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.member}
-              >
-                <img src="/welcome/team/megan.png" alt="Megan Kain" className={styles.memberImg} />
-                <h3 className={styles.memberName}>Megan Kain</h3>
-                <p className={styles.memberTitle}>Head of Operations</p>
-              </a>
+
               <a
                 href="https://www.linkedin.com/in/danaekiaradiaz/"
                 target="_blank"
@@ -276,62 +240,98 @@ const sliderSettings = {
                 <h3 className={styles.memberName}>Kiara Diaz</h3>
                 <p className={styles.memberTitle}>Head of Public Relations</p>
               </a>
+
+              <a
+                href="https://www.linkedin.com/in/annaatlasova/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.member}
+              >
+                <img src="/welcome/team/anna.jpeg" alt="Anna Atlasova" className={styles.memberImg} />
+                <h3 className={styles.memberName}>Anna Atlasova</h3>
+                <p className={styles.memberTitle}>Head of Education & Research</p>
+              </a>
+
             </div>
           </section>
 
-  <section className={styles.eventsSection}>
-    <h2 className={styles.eventsTitle}>Our Events</h2>
-    <Slider {...sliderSettings}>
-      {events.map((event, idx) => (
-        <div key={idx} className={styles.eventItem}>
-          {event.image && (
-            <img
-              src={event.image}
-              alt={event.title}
-              loading="lazy"
-              className={styles.eventImage}
-            />
-          )}
-          <div className={styles.eventText}>
-            <h3 className={styles.eventTitle}>{event.title}</h3>
-            <p className={styles.eventDescription}>{event.description}</p>
-            {event.link && (
-              <a
-                href={event.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.eventLink}
-              >
-                More…
-              </a>
-            )}
-          </div>
-        </div>
-      ))}
-    </Slider>
-  </section>
+                    {/* BUTTONS */}
+          <section className={styles.buttonSection}>
+            <h2 className={styles.missionVisionTitle}>Quantum Learning Hub</h2>
+            <div style={{ paddingTop: '0rem', fontSize: '1.5rem' , paddingBottom: '1rem'}}>
+              Build a foundation of quantum computing skills, and understand how to apply them in the real world.
+            </div>
+            <div className={styles.buttonGroup}>
+              <Link href="/learning">
+                <div className={styles.customButton}>
+                  <span className={styles.defaultText}>Start Learning</span>
+                  <span className={styles.hoverText}>
+                    Curious to learn about Quantum? Awesome! Let’s start from the basics.
+                  </span>
+                </div>
+              </Link>
+              <Link href="/community">
+                <div className={styles.customButton}>
+                  <span className={styles.defaultText}>Join Us</span>
+                  <span className={styles.hoverText}>
+                    Connect with forward-thinking minds. Stay updated on the latest research, events, and news.
+                  </span>
+                </div>
+              </Link>
+            </div>
+          </section>
+
+          {/*Events*/}
+            <section className={styles.eventsSection}>
+              <h2 className={styles.eventsTitle}>Our Events</h2>
+              <Slider {...sliderSettings}>
+                {events.map((event, idx) => (
+                  <div key={idx} className={styles.eventItem}>
+                    {event.image && (
+                      <img
+                        src={event.image}
+                        alt={event.title}
+                        loading="lazy"
+                        className={styles.eventImage}
+                      />
+                    )}
+                    <div className={styles.eventText}>
+                      <h3 className={styles.eventTitle}>{event.title}</h3>
+                      <p className={styles.eventDescription}>{event.description}</p>
+                      {event.link && (
+                        <a
+                          href={event.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.eventLink}
+                        >
+                          More…
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </Slider>
+            </section>
 
           {/* FOLLOW US */}
           <section className={styles.keepInTouchSection}>
             <h2 className={styles.keepInTouchTitle}>Follow Us</h2>
             <div className={styles.socialLinks}>
-              {/* Twitter */}
+
+              {/* LinkedIn */}
               <a
-                href="https://twitter.com/quantumsociety0"
+                href="https://www.linkedin.com/company/quantumsociety/posts/?feedView=all"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.socialLink}
               >
-                <svg
-                  className={styles.socialIcon}
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M22.46 6c-.77.34-1.59.57-2.46.67a4.26 4.26 0 0 0 1.88-2.36 8.59 8.59 0 0 1-2.72 1.04 4.28 4.28 0 0 0-7.3 3.9A12.14 12.14 0 0 1 3.15 4.1a4.28 4.28 0 0 0 1.32 5.72 4.24 4.24 0 0 1-1.94-.54v.05a4.28 4.28 0 0 0 3.43 4.2 4.29 4.29 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.59 8.59 0 0 1-5.3 1.83A8.63 8.63 0 0 1 2 19.54a12.15 12.15 0 0 0 6.6 1.93c7.92 0 12.25-6.56 12.25-12.25v-.56A8.8 8.8 0 0 0 24 4.56a8.6 8.6 0 0 1-2.54.7z" />
+                <svg className={styles.socialIcon} viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 3A2 2 0 0 1 21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-9.75 7H7v7h2.25v-7zM8.12 6.75a1.31 1.31 0 1 0 0 2.62 1.31 1.31 0 0 0 0-2.62zM17 13.25c0-2.15-1.15-3.25-2.69-3.25-1.17 0-1.7.64-2 1.09v-.94H10v7h2.25v-3.89c.18-.32.57-.64 1.11-.64.74 0 1.14.48 1.14 1.38v3.15H17v-3.9z"/>
                 </svg>
-                Twitter
+                LinkedIn
               </a>
+
               {/* Instagram */}
               <a
                 href="https://www.instagram.com/quantumsociety0/"
@@ -344,17 +344,23 @@ const sliderSettings = {
                 </svg>
                 Instagram
               </a>
-              {/* LinkedIn */}
+              
+              {/* X */}
               <a
-                href="https://www.linkedin.com/company/quantumsociety/posts/?feedView=all"
+                href="https://x.com/quantumsociety0"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.socialLink}
               >
-                <svg className={styles.socialIcon} viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19 3A2 2 0 0 1 21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-9.75 7H7v7h2.25v-7zM8.12 6.75a1.31 1.31 0 1 0 0 2.62 1.31 1.31 0 0 0 0-2.62zM17 13.25c0-2.15-1.15-3.25-2.69-3.25-1.17 0-1.7.64-2 1.09v-.94H10v7h2.25v-3.89c.18-.32.57-.64 1.11-.64.74 0 1.14.48 1.14 1.38v3.15H17v-3.9z"/>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 18 18"
+                  fill="currentColor"
+                  className={styles.socialIcon}
+                >
+                  <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
                 </svg>
-                LinkedIn
+                X
               </a>
             </div>
           </section>

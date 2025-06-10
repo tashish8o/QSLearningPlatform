@@ -1,0 +1,39 @@
+/* components/ButtonSection.module.css */
+.buttonSection {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.customButton {
+  position: relative;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.defaultText, .hoverText {
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.customButton:hover .defaultText {
+  transform: translateY(-100%);
+}
+
+.customButton:hover .hoverText {
+  transform: translateY(0);
+}
+
+.hoverText {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+}

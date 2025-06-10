@@ -14,6 +14,11 @@ export const metadata: Metadata = {
     width: 'device-width',
     initialScale: 1,
   },
+
+    icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -34,7 +39,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <nav className={styles.nav}>
             <Link href="/">Home</Link>
             <Link href="/learning">Learning</Link>
-            <Link href="/courses">Courses</Link>
+            <Link href="/events">Events</Link>
             <Link href="/community">Community</Link>
           </nav>
         </header>

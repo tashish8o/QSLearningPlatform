@@ -1,10 +1,60 @@
-/* --- SPLASH SCREEN --- */
+/* ───────────────────────────────────────────
+   GLOBAL RESET & TOKENS  (wrapped in :global)
+   ─────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:global(:root) {
+  --qs-wrapper-max: 1200px;
+  --qs-gap: clamp(4rem, 6vw, 7rem);
+  --qs-card-radius: 12px;
+  --qs-card-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+/* reset */
+:global(*), :global(*::before), :global(*::after) {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:global(body) {
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+  background: #000c1f;     /* keep your dark backdrop */
+  color: #ffffff;
+}
+:global(a) { color: #60d3ff; text-decoration: none; }
+:global(img) { max-width: 100%; height: auto; display: block; }
+
+/* ───────────────────────────────────────────
+   WRAPPERS & SHARED SECTION SPACING
+   ─────────────────────────────────────────── */
+.contentWrapper,
+.missionVisionSection,
+.eventsSection,
+.orgSection,
+.buttonSection,
+.keepInTouchSection {
+  max-width: var(--qs-wrapper-max);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+.section,
+.missionVisionSection,
+.eventsSection,
+.orgSection,
+.buttonSection,
+.keepInTouchSection {
+  padding-block: var(--qs-gap);
+}
+
+/* ───────────────────────────────────────────
+   SPLASH SCREEN  (unchanged colours)
+   ─────────────────────────────────────────── */
 .splashContainer {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   background: #000c1f;
   display: flex;
   flex-direction: column;
@@ -15,34 +65,11 @@
   opacity: 1;
   transition: opacity 1s ease;
 }
-
-.fadeOut {
-  opacity: 0;
-}
-
-.hideSplash {
-  display: none;
-}
-
-.splashContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-/* Logo and Title */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.logoImg {
-  height: 50px;
-  width: auto;
-}
-
+.fadeOut { opacity: 0; }
+.hideSplash { display: none; }
+.splashContent { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+.logo { display: flex; align-items: center; gap: 0.5rem; }
+.logoImg { height: 50px; width: auto; }
 .headerTitle {
   font-size: 1.25rem;
   font-weight: 700;
@@ -50,251 +77,119 @@
   text-shadow: 0 0 6px rgba(96, 207, 255, 0.7),
                0 0 12px rgba(96, 207, 255, 0.5);
 }
-
-/* Big Tagline */
 .bigTagline {
   font-size: 1.8rem;
   color: #60d3ff;
   text-shadow: 0 0 10px rgba(96, 211, 255, 1),
                0 0 20px rgba(96, 211, 255, 0.7);
 }
+.mainContent { padding: 0; opacity: 0; animation: fadeIn 1s ease forwards 1.5s; }
+@keyframes fadeIn { to { opacity: 1; } }
 
-/* --- MAIN CONTENT --- */
-.mainContent {
-  padding: 0; /* <-- make sure this is explicitly 0 */
-  opacity: 0;
-  animation: fadeIn 1s ease forwards;
-  animation-delay: 1.5s;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-.contentWrapper {
-  padding: 0;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.combinedTitle {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #60d3ff;
-  margin-bottom: 1rem;
-
-
-}
-
-.typingText {
-  font-family: inherit; /* Inherit from parent if your heading uses a special font */
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-top: 0.5rem;
-  white-space: nowrap;
-  overflow: hidden;
-  display: inline-block;
-  letter-spacing: 0.5px;
-  font-size: 1.8rem;
-  color: #60d3ff;
-  text-align: center;
-}
-
-
-.cursor {
-  display: inline-block;
-  width: 1px;
-  background-color: #60d3ff;
-  animation: blink 0.75s steps(1) infinite;
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
-
-.fadeInTitle {
-  opacity: 0;
-  transform: scale(0.8);
-  animation: fadeZoomIn 1s ease-out forwards;
-  animation-delay: 0.2s;
-}
-
-@keyframes fadeZoomIn {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-
-
+/* ───────────────────────────────────────────
+   HERO SECTION
+   ─────────────────────────────────────────── */
 .heroWelcomeSection {
   position: relative;
-  width: 100vw; /* full viewport width */
-  height: 100vh; /* full viewport height */
-  background: url('/welcome/background.png') center center / cover no-repeat;
+  width: 100%;
+  min-height: 85vh;
+  background: url('/welcome/background.png') center / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: calc(-50vw + 50%);
 }
-
-
 .heroWelcomeOverlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
-
 .heroWelcomeContent {
   position: relative;
   z-index: 2;
   text-align: center;
-  color: white;
-  transform: translateY(-80px); /* Move the text upward */
+  padding-inline: 1rem;
 }
-
-.combinedTitle {
-  font-size: 3rem;
+.animatedTitle {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 700;
+  text-transform: uppercase;
   color: #60d3ff;
   margin: 0;
-  text-transform: uppercase;
+  opacity: 0;
+  transform: scale(0.85);
+  animation: fadeScaleUp 1s ease-out forwards;
 }
-
-.heroSubtitle {
-  font-size: 1.25rem;
-  margin-top: 0.5rem;
+@keyframes fadeScaleUp { to { opacity: 1; transform: scale(1); } }
+.typingText {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
   color: #ffffff;
+  margin-top: 0.75rem;
+  white-space: nowrap;
+  overflow: hidden;
 }
-
-/* VIDEO SECTION */
-.videoSection {
-  text-align: center;
-  margin: 2rem 0;
+.cursor {
+  display: inline-block;
+  width: 1px;
+  background: #60d3ff;
+  animation: blink 0.75s steps(1) infinite;
 }
-
-.videoContainer {
-  display: flex;
-  justify-content: center;
+@keyframes blink { 50% { opacity: 0; } }
+.joinButton {
+  display: inline-block;
+  margin-top: 1.75rem;
+  padding: 0.85rem 2.25rem;
+  border-radius: 8px;
+  background: #003366;
+  color: #ffffff;
+  font-weight: 600;
+  transition: background 0.2s;
 }
+.joinButton:hover { background: rgba(0, 31, 77, 0.9); }
 
-/* MISSION & VISION SECTION */
-.missionVisionSection {
-  padding: 3rem 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;  /* Center-align all text in the section */
-  background: none;    /* Remove any background color to blend in */
-}
-
-.missionVisionTitle {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: #60d3ff;
-  text-align: center;  /* Center the title */
-}
-
+/* ───────────────────────────────────────────
+   MISSION & VISION
+   ─────────────────────────────────────────── */
+.missionVisionSection { text-align: center; }
+.missionVisionTitle { font-size: 2rem; margin-bottom: 2rem; color: #60d3ff; }
 .missionVisionFlex {
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
   justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;    /* Allow blocks to stack on small screens */
+  flex-wrap: wrap;
 }
+.mvBlock { flex: 1; max-width: 500px; padding: 1rem; border-radius: 8px; }
+.mvImage { width: 100%; border-radius: 4px; margin-bottom: 1rem; }
+.mvHeading { font-size: 1.5rem; color: #ffffff; margin-bottom: 0.5rem; }
+.mvText { font-size: 1rem; color: #cccccc; line-height: 1.5; }
 
-.mvBlock {
-  flex: 1;
-  max-width: 500px;   /* Optional: limit width so they don't stretch too wide */
-  background: transparent;  /* Transparent so it blends with the page */
-  padding: 1rem;
-  border-radius: 8px;
-}
-
-.mvImage {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin-bottom: 1rem;
-  border-radius: 4px;
-}
-
-.mvHeading {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: #ffffff;
-}
-
-.mvText {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #cccccc;
-}
-
-/* EVENTS CAROUSEL SECTION */
-.eventsSection {
-  padding: 2rem 1rem;
-  max-width: 1200px;
-  margin: 0 auto 2rem auto;
-  text-align: center;
-}
-
-.eventsTitle {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: #60d3ff;
-}
-
+/* ───────────────────────────────────────────
+   EVENTS CAROUSEL
+   ─────────────────────────────────────────── */
+.eventsTitle { font-size: 2rem; margin-bottom: 1.5rem; color: #60d3ff; text-align: center; }
 .eventItem {
+  margin: 0 1rem;
   padding: 1rem;
-  outline: none;
+  border-radius: var(--qs-card-radius);
+  box-shadow: var(--qs-card-shadow);
 }
-
 .eventImage {
-  width: 400px;
-  height: 300px;
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
   border-radius: 8px;
   margin-bottom: 1rem;
 }
+.eventText { text-align: left; }
+.eventTitle { font-size: 1.25rem; margin-bottom: 0.5rem; color: #ffffff; }
+.eventDescription { font-size: 1rem; color: #cccccc; line-height: 1.4; }
+.eventLink { display: inline-block; margin-top: 0.5rem; color: #60d3ff; font-weight: 500; }
 
-/* .eventImage:hover {
-  width: 400px;
-  height: 400px;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-} */
-
-.eventText {
-  text-align: left;
-}
-
-.eventTitle {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-  color: #ffffff;
-}
-
-.eventDescription {
-  font-size: 1rem;
-  color: #cccccc;
-  line-height: 1.4;
-}
-
-/* BUTTONS SECTION */
-.buttonSection {
-  text-align: center;
-}
-
-.buttonGroup {
-  display: inline-flex;
-  gap: 1rem;
-}
-
+/* ───────────────────────────────────────────
+   LEARNING HUB BUTTONS
+   ─────────────────────────────────────────── */
+.buttonSection { text-align: center; }
+.buttonGroup { display: inline-flex; gap: 1.5rem; flex-wrap: wrap; }
 /* Custom Button with Smooth Expansion */
 .customButton {
   position: relative;
@@ -350,232 +245,66 @@
   opacity: 1;
 }
 
-/* OUR TEAM SECTION */
-.orgSection {
-  padding: 2rem 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-  background: none;         /* Remove distinct background */
-  color: inherit;           /* Use inherited text color */
-}
-
-.orgTitle {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #60d3ff;
-  text-align: center;
-}
-
+/* ───────────────────────────────────────────
+   OUR TEAM
+   ─────────────────────────────────────────── */
+.orgTitle { font-size: 2rem; margin-bottom: 1rem; color: #60d3ff; text-align: center; }
 .orgMembers {
-  display: flex;
-  justify-content: center;
+  --min: 260px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--min), 1fr));
   gap: 2rem;
-  flex-wrap: wrap;
 }
-
 .member {
-  background: transparent;  /* Remove the dark background */
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: var(--qs-card-shadow);
   padding: 1rem;
   border-radius: 8px;
-  width: 200px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   text-align: center;
+  transition: transform 0.15s;
 }
-
+.member:hover { transform: translateY(-4px); }
 .memberImg {
-  width: 100%;
-  height: auto;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
+  margin-inline: auto;
   margin-bottom: 0.75rem;
 }
+.memberName { font-size: 1.25rem; margin-bottom: 0.25rem; color: #60d3ff; }
+.memberTitle { font-size: 1rem; color: #cccccc; }
 
-.memberName {
-  font-size: 1.25rem;
-  margin-bottom: 0.25rem;
-  color: #60d3ff;
-}
-
-
-.memberTitle {
-  font-size: 1rem;
-  color: #cccccc;
-}
-
-/* RESOURCES SECTION */
-.resourcesSection {
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.resourcesTitle {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: #ffffff;
-}
-
-.resourcesLinks {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 1.125rem;
-}
-
-.resourcesLinks a {
-  color: #ffffff;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.resourcesLinks a:hover {
-  color: #48a9e6;
-}
-
-.linkSeparator {
-  color: #ffffff;
-}
-
-
-/* KEEP IN TOUCH SECTION */
-.keepInTouchSection {
-  text-align: center;
-  padding: 3rem 1rem;
-  border-top: 1px solid #333;
-  margin-top: 3rem;
-}
-
-.keepInTouchTitle {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: #60d3ff;
-}
-
-.socialLinks {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
+/* ───────────────────────────────────────────
+   KEEP IN TOUCH
+   ─────────────────────────────────────────── */
+.keepInTouchSection { border-top: 1px solid #333; margin-top: var(--qs-gap); text-align: center; }
+.keepInTouchTitle { font-size: 2rem; margin-bottom: 1.5rem; color: #60d3ff; }
+.socialLinks { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
 .socialLink {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   color: #ffffff;
   font-size: 1rem;
-  text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s;
 }
+.socialLink:hover { color: #60d3ff; }
+.socialIcon { width: 20px; height: 20px; flex-shrink: 0; }
 
-.socialLink:hover {
-  color: #60d3ff;
-}
-
-.socialIcon {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-}
-
-
-/* Typing animation */
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
-}
-
-
-/* RESPONSIVE STYLES */
+/* ───────────────────────────────────────────
+   RESPONSIVE
+   ─────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .combinedTitle {
-    font-size: 2rem;
-  }
-  .combinedSubtitle {
-    font-size: 1.75rem;
-  }
-  .combinedDescription {
-    font-size: 1.125rem;
-  }
-  .buttonGroup {
-    flex-direction: column;
-    align-items: center;
-  }
-  .missionVisionFlex {
-    flex-direction: column;
-  }
-  .orgMembers {
-    flex-direction: column;
-    align-items: center;
-  }
-  .eventTitle {
-    font-size: 1.1rem;
-  }
-  .eventDescription {
-    font-size: 0.95rem;
-  }
+  .heroWelcomeSection { min-height: 70vh; }
+  .animatedTitle { font-size: 2.25rem; }
+  .typingText   { font-size: 1.25rem; }
+  .missionVisionFlex { flex-direction: column; gap: 2rem; }
+  .buttonGroup { flex-direction: column; }
 }
 
-@media (max-width: 768px) {
-  .heroWelcomeContent {
-    transform: translateY(-40px);
-  }
-}
-
-/* Animate Title */
-.animatedTitle {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #60d3ff;
-  margin: 0;
-  text-transform: uppercase;
-  opacity: 0;
-  transform: scale(0.85);
-  animation: fadeScaleUp 1s ease-out forwards;
-}
-
-@keyframes fadeScaleUp {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Typing Effect */
-.typingText {
-  font-size: 1.25rem;
-  color: white;
-  margin-top: 0.75rem;
-  white-space: nowrap;
-  overflow: hidden;
-  display: inline-block;
-}
-
-.cursor {
-  display: inline-block;
-  width: 1px;
-  background-color: #60d3ff;
-  animation: blink 0.75s steps(1) infinite;
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
-
-
-
-
+/* ───────────────────────────────────────────
+   SPLASH CLEANUP
+   ─────────────────────────────────────────── */
 .hideSplash *,
 .hideSplash *::before,
 .hideSplash *::after {

@@ -1,0 +1,70 @@
+/* pages/events.module.css  –– reuses site colours, adds breathing room */
+.page {
+  padding: var(--qs-gap) 1.25rem;
+  max-width: var(--qs-wrapper-max);
+  margin-inline: auto;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #60d3ff;
+  text-align: center;
+  margin: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: var(--qs-card-radius);
+  box-shadow: var(--qs-card-shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  object-fit: cover;
+}
+
+.body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.desc {
+  color: #cccccc;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+.more {
+  margin-top: auto;          /* pushes link to bottom */
+  align-self: flex-start;
+  color: #60d3ff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.more:hover { color: #ffffff; }
+
+/* mobile tweaks */
+@media (max-width: 500px) {
+  .grid { gap: 1.5rem; }
+  .cardTitle { font-size: 1.25rem; }
+}

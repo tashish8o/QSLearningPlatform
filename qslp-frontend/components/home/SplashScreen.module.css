@@ -1,0 +1,43 @@
+/* components/SplashScreen.module.css */
+.splashContainer {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.fadeOut {
+  opacity: 0;
+}
+
+.splashContent {
+  text-align: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoImg {
+  width: 60px;
+  height: 60px;
+  margin-right: 0.5rem;
+}
+
+.headerTitle {
+  font-size: 2rem;
+  color: #003366;
+}
+
+.bigTagline {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: #0a0a23;
+}
