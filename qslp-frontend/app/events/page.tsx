@@ -32,7 +32,7 @@ export default function EventsPage() {
               // Same Google-Drive thumbnail logic as home page
               const rawImage = row["Image URL"]?.trim() ?? "";
               let imageUrl = rawImage;
-              let match = rawImage.match(/\/d\/([a-zA-Z0-9_-]+)/) ??
+              const match = rawImage.match(/\/d\/([a-zA-Z0-9_-]+)/) ??
                           rawImage.match(/id=([a-zA-Z0-9_-]+)/);
               if (match) imageUrl = `https://drive.google.com/thumbnail?id=${match[1]}`;
 

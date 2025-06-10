@@ -1,5 +1,35 @@
 /* app/globals.css */
 
+/* ───────────────────────────────────────────
+   GLOBAL TOKENS • RESET • FONTS
+   (no CSS-module hashing here)
+   ─────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+  --qs-wrapper-max: 1200px;
+  --qs-gap: clamp(4rem, 6vw, 7rem);
+  --qs-card-radius: 12px;
+  --qs-card-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+/* base reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+  background: #000c1f;        /* your dark backdrop */
+  color: #ffffff;
+}
+
+a   { color: #60d3ff; text-decoration: none; }
+img { max-width: 100%; height: auto; display: block; }
+
 /* Basic Reset */
 * {
   margin: 0;
