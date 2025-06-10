@@ -187,21 +187,28 @@
 
 .customButton {
   position: relative;
-  width: 240px;
-  height: 50px;
-  padding: 0 1.5rem;
-  background: #60d3ff;
+  background-color: #60d3ff;
   border-radius: 4px;
   color: #000;
   font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.25s;
-  overflow: hidden;
   cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  
+  width: 220px;
+  height: 50px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
-.customButton:hover { transform: translateY(-4px); }
+
+.customButton:hover {
+  width: 300px;
+  height: 80px;
+  background-color: #48a9e6;
+}
 
 .defaultText, .hoverText {
   position: absolute;
