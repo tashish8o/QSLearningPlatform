@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from './page.module.css';
 import { usePathname } from 'next/navigation';
+import EmailCapture from '@/app/components/home/EmailCapture';  
 import Papa from 'papaparse';
 
 // Dynamically import Slider from react-slick with SSR disabled
@@ -128,6 +129,7 @@ const sliderSettings = {
   slidesToShow: 3,
   slidesToScroll: 1,
   responsive: [
+    
     { breakpoint: 1024, settings: { slidesToShow: 2, slidesToScroll: 1, infinite: true, dots: true } },
     { breakpoint: 600,  settings: { slidesToShow: 1, slidesToScroll: 1 } },
   ],
@@ -135,18 +137,6 @@ const sliderSettings = {
 
   
 
-  // Typing effect for hero subtitle
-  const [typedText, setTypedText] = useState("");
-  useEffect(() => {
-    const fullText = "Be Ready. Join the Movement.";
-    let i = 0;
-    const interval = setInterval(() => {
-      setTypedText(fullText.slice(0, i + 1));
-      i++;
-      if (i === fullText.length) clearInterval(interval);
-    }, 60);
-    return () => clearInterval(interval);
-  }, [animationKey]);
 
   return (
     <>
@@ -175,14 +165,11 @@ const sliderSettings = {
           <section className={styles.heroWelcomeSection}>
             <div className={styles.heroWelcomeOverlay}></div>
             <div key={animationKey} className={styles.heroWelcomeContent}>
-              <h1 className={styles.animatedTitle}> The Quantum Revolution Is Coming.
+              <h1 className={styles.animatedTitle}> The Quantum Revolution is Coming
           </h1>
-              <p className={styles.typingText}>
-                {typedText}
-                <span className={styles.cursor}>|</span>
-                <br/>
-                <a href="/community" className={styles.joinButton}>Join</a>
-              </p>
+          <p className={styles.subTitle}>Be Ready. Join the Movement.</p>
+
+              <EmailCapture />
             </div>
 
           
@@ -225,7 +212,7 @@ const sliderSettings = {
                 rel="noopener noreferrer"
                 className={styles.member}
               >
-                <img src="/welcome/team/anto.png" alt="Anto Patrex" className={styles.memberImg} />
+                <img src="/welcome/team/anto.jpeg" alt="Anto Patrex" className={styles.memberImg} />
                 <h3 className={styles.memberName}>Anto Patrex</h3>
                 <p className={styles.memberTitle}>Head of Technology</p>
               </a>
@@ -236,7 +223,7 @@ const sliderSettings = {
                 rel="noopener noreferrer"
                 className={styles.member}
               >
-                <img src="/welcome/team/kiara.png" alt="Kiara Diaz" className={styles.memberImg} />
+                <img src="/welcome/team/kiara.jpeg" alt="Kiara Diaz" className={styles.memberImg} />
                 <h3 className={styles.memberName}>Kiara Diaz</h3>
                 <p className={styles.memberTitle}>Head of Public Relations</p>
               </a>
@@ -305,7 +292,7 @@ const sliderSettings = {
                           rel="noopener noreferrer"
                           className={styles.eventLink}
                         >
-                          More…
+                          Register
                         </a>
                       )}
                     </div>

@@ -91,9 +91,8 @@
 }
 
 .animatedTitle {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(2rem, 5.5vw, 3.5rem); 
   font-weight: 700;
-  text-transform: uppercase;
   color: #60d3ff;
   margin: 0;
   opacity: 0;
@@ -102,12 +101,11 @@
 }
 @keyframes fadeScaleUp { to { opacity: 1; transform: scale(1); } }
 
-.typingText {
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+.subTitle {
+  font-size: clamp(1.3rem, 1.8vw, 1.55rem);   /* ≈20 px on desktop */
   color: #ffffff;
   margin-top: 0.75rem;
-  white-space: nowrap;
-  overflow: hidden;
+  text-align: center;
 }
 
 .cursor {
@@ -158,6 +156,7 @@
   padding: 1rem;
   border-radius: var(--qs-card-radius);
   box-shadow: var(--qs-card-shadow);
+  
 }
 
 .eventImage {

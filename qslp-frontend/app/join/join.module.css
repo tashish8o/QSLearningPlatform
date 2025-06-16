@@ -1,0 +1,22 @@
+/* centers everything and gives mobile padding */
+.wrap {
+  max-width: 720px;
+  margin-inline: auto;
+  padding: 0 1.25rem;
+  text-align: center;
+  margin-top: 15vh;           /* nice vertical balance */
+}
+
+.title {
+  font-size: clamp(2.2rem, 6vw, 3rem);  /* large headline */
+  font-weight: 700;
+  color: #60d3ff;
+  margin-bottom: 1rem;
+}
+
+.sub {
+  font-size: clamp(1rem, 2.2vw, 1.25rem); /* smaller body */
+  color: #ffffff;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}

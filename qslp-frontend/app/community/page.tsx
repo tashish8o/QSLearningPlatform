@@ -1,38 +1,40 @@
-// app/community/page.tsx
 'use client';
+
+import EmailCapture from '@/app/components/home/EmailCapture';
+import styles from './community.module.css';
 
 export default function CommunityPage() {
   return (
-    <section>
-      <h1>Community</h1>
-      <p>Join discussions, ask questions, and share resources with fellow learners.</p>
+    <main className={styles.wrap}>
+      <h1 className={styles.title}>Community</h1>
 
-      <div style={{ marginTop: '1rem' }}>
+      <p className={styles.lead}>
+        Join discussions, ask questions, and share resources with fellow learners.
+      </p>
+
+      {/* email-signup box */}
+      <EmailCapture />
+
+      {/* link to forum */}
+      <div className={styles.spaceTop}>
         <a
-          href="https://discourse.example.com" // replace with actual forum link
+          href="https://discourse.example.com"         // ← replace with real link
           target="_blank"
           rel="noopener noreferrer"
+          className={styles.forumLink}
         >
-          Go to Our Forum
+          Go to Our Forum →
         </a>
       </div>
 
-      <div style={{ marginTop: '1rem' }}>
-        <h2>Upcoming Events</h2>
-        <ul>
-          <li>Women in AI Dinner - June 15</li>
-          <li>Quantum Hackathon - July 3-5</li>
-          <li>Research Workshops - August 20</li>
-        </ul>
-      </div>
-
-      <div style={{ marginTop: '1rem' }}>
-        <h2>Contribute</h2>
-        <p>
-          Submit research papers, share code, or write mini-tutorials. 
-          Help us grow the quantum community.
+      {/* Contribute section */}
+      <section className={styles.spaceTop}>
+        <h2 className={styles.subtitle}>Contribute</h2>
+        <p className={styles.text}>
+          Submit research papers, share code, or write mini-tutorials. Help us grow
+          the quantum community.
         </p>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }

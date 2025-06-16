@@ -1,0 +1,48 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 0;                       /* input + button touch each other */
+  width: 100%;
+  max-width: 550px;
+  margin: 1.75rem auto 0 auto;  /* space under headline */
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+  border-radius: 8px;
+             /* keeps pill illusion */
+}
+
+.input {
+  flex: 1 1 auto;
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+}
+
+.btn {
+  padding: 0 1.75rem;
+  background: #003366;          /* coral-ish like dl.ai */
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background .2s;
+}
+
+.btn:hover   { background: #003355; }
+.btn:active  { background: #003355; }
+
+.ok,
+.err {
+  text-align: center;
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+}
+.ok  { color: #60d3ff; }
+.err { color: #ff6b6b; }
+
+/* mobile */
+@media (max-width: 480px) {
+  .wrapper { flex-direction: column; border-radius: 12px; }
+  .input   { width: 100%; }
+  .btn     { width: 100%; padding: 0.9rem 0; }
+}
