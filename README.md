@@ -5,7 +5,7 @@ Live sites
 - Project demo / frontend: https://qs-learning-platfo-git-1ae194-tagore-ashish-yelisettys-projects.vercel.app
 
 Summary
-This repository contains QSLearningPlatform — a learning & events site for the Quantum Society developed by Tagore Ashish Yelisetty (March – June 26) with contributions and guidance from the Quantum Society team. The site supports dynamic events and email-collection functionality powered by a Google Sheet.
+This repository contains QSLearningPlatform — a learning & events site for the Quantum Society developed by Tagore Ashish Yelisetty (March – June 2025) with contributions and guidance from the Quantum Society team. The site supports dynamic events and email-collection functionality powered by a Google Sheet.
 
 Special thanks to Anna Atlasova and Kiara Diaz for their support throughout the project.
 
